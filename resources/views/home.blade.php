@@ -38,7 +38,24 @@
     </table>
   </div>
   <div class="row">
-    <a class="btn blue" href="{{route('admin.auditorio.adicionar')}}">Adicionar</a>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Adicionar</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <form class="" action="{{route('admin.auditorio.salvar')}}" method="post">
+          {{ csrf_field() }}
+          @include('admin._form')
+
+          <button class="btn deep-orange">Salvar</button>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
 
   </div>
 
