@@ -28,6 +28,9 @@
   function erroFormulario(){
       Materialize.toast('I am a toast!', 4000);
   }
+  $('.modal-trigger').on('click', function(){
+      var id = $(this).data('id'); // vamos buscar o valor do atributo data-id
+  });
 
 
 </script>

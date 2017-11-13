@@ -10,7 +10,7 @@ class AuditorioController extends Controller
       $dados = $req->all();
       Auditorio::create($dados);
 
-      return redirect()->route('site.home');
+      return redirect()->back();
     }
 
     public function index(){
@@ -33,11 +33,11 @@ class AuditorioController extends Controller
 
       Auditorio::find($id)->update($dados);
 
-      return redirect()->route('site.home');
+      return redirect()->back();
     }
 
     public function deletar($id){
       Auditorio::find($id)->delete();
-      return redirect()->route('site.home');
+      return redirect()->back();
     }
 }
