@@ -17,7 +17,7 @@
     </div>
 
     <div class="input-field col s3">
-        <input type="text" name="capacidade" value="{{isset($registro->capacidade) ? $registro->capacidade : ''}}">
+        <input type="number" name="capacidade" value="{{isset($registro->capacidade) ? $registro->capacidade : ''}}">
         <label>Capacidade</label>
     </div>
 
@@ -25,6 +25,15 @@
         <textarea name="descricao"
                   class="materialize-textarea">{{isset($registro->descricao) ? $registro->descricao : ''}}</textarea>
         <label for="descricao">Descrição</label>
+    </div>
+    <div class="switch center">
+        <h6>Possui Acessibilidade?</h6>
+        <label>
+            Off
+            <input type="checkbox">
+            <span class="lever"></span>
+            On
+        </label>
     </div>
 
 </div>

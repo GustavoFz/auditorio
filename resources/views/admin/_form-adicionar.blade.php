@@ -25,4 +25,14 @@
         <label for="descricao">Descrição</label>
     </div>
 
+    <div class="switch center">
+        <h6>Possui Acessibilidade?</h6>
+        <label>
+            Off
+            <input type="checkbox">
+            <span class="lever"></span>
+            On
+        </label>
+    </div>
+
 </div>
