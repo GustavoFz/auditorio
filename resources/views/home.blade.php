@@ -38,6 +38,8 @@
                                         class="small material-icons">date_range</i></a>
                         </td>
                     </tr>
+
+
                    <!-- Modal Editar -->
                     <div id="modal-editar-{{$registro->id}}" class="modal">
                         <div class="modal-content">
@@ -53,13 +55,15 @@
                             </form>
                         </div>
                     </div>
+
+                    
                     <!-- Modal Excluir -->
                     <div id="modal-excluir-{{$registro->id}}" class="modal">
                         <div class="modal-content">
                             <h5 class="center-align">Tem certeza que deseja excluir?</h5>
                             <div class="center">
+                                 <a href="{{route('admin.auditorio.deletar', $registro->id)}}" class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Não</a>
-                                <a href="{{route('admin.auditorio.deletar', $registro->id)}}" class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
                             </div>
                         </div>
                     </div>
