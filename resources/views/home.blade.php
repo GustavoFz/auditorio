@@ -28,16 +28,41 @@
                         <td>{{$registro->descricao}}</td>
                         <td>{{$registro->capacidade}}</td>
                         <td>
-                            <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar">
+                            <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar-{{$registro->id}}">
                                 <i class="small material-icons">create</i>
                             </a>
-                            <a style="color: #F44336;" class="modal-trigger delete" href="#modal-excluir">
+                            <a style="color: #F44336;" class="modal-trigger delete" href="#modal-excluir-{{$registro->id}}">
                                 <i class="small material-icons">delete</i>
                             </a>
                             <a style="color: #43A047;" href="{{route('agendamento.agendar', $registro->id)}}"><i
                                         class="small material-icons">date_range</i></a>
                         </td>
                     </tr>
+                   <!-- Modal Editar -->
+                    <div id="modal-editar-{{$registro->id}}" class="modal">
+                        <div class="modal-content">
+                            <h4>Modal Header</h4>
+                            <form class="" action="{{route('admin.auditorio.atualizar', $registro->id)}}" method="post"
+                                  enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="put">
+                                @include('admin._form')
+
+                                <button class="btn deep-orange">Atualizar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Modal Excluir -->
+                    <div id="modal-excluir-{{$registro->id}}" class="modal">
+                        <div class="modal-content">
+                            <h5 class="center-align">Tem certeza que deseja excluir?</h5>
+                            <div class="center">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Não</a>
+                                <a href="{{route('admin.auditorio.deletar', $registro->id)}}" class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
                 </tbody>
             </table>
@@ -54,40 +79,10 @@
                         @include('admin._form-adicionar')
 
                         <button class="btn deep-orange">Salvar</button>
-
                     </form>
                 </div>
-
             </div>
-            <!-- Modal Editar -->
-            <div id="modal-editar" class="modal">
-                <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <form class="" action="{{route('admin.auditorio.atualizar', $registro->id)}}" method="post"
-                          enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="_method" value="put">
-                        @include('admin._form')
-
-                        <button class="btn deep-orange">Atualizar</button>
-
-                    </form>
-                </div>
-
-            </div>
-            <!-- Modal Excluir -->
-            <div id="modal-excluir" class="modal">
-                <div class="modal-content">
-                    <h5 class="center-align">Tem certeza que deseja excluir?</h5>
-                    <div class="center">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Não</a>
-                        <a href="{{route('admin.auditorio.deletar', $registro->id)}}" class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
     </div>
 
 @endsection
