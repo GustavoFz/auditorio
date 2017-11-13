@@ -51,7 +51,6 @@
                                 @include('admin._form')
 
                                 <button class="btn deep-orange">Atualizar</button>
-
                             </form>
                         </div>
                     </div>
@@ -81,11 +80,11 @@
                     <form class="" action="{{route('admin.auditorio.salvar')}}" method="post">
                         {{ csrf_field() }}
                         @include('admin._form-adicionar')
-
                         <button class="btn deep-orange">Salvar</button>
                     </form>
                 </div>
             </div>
+            
         </div>
     </div>
 
