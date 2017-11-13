@@ -10,7 +10,7 @@ class AuditorioController extends Controller
       $dados = $req->all();
       Auditorio::create($dados);
 
-      return redirect()->route('site.home');
+      return redirect()->back();
     }
 
     public function index(){
