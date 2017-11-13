@@ -31,7 +31,7 @@
                             <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar">
                                 <i class="small material-icons">create</i>
                             </a>
-                            <a style="color: #F44336;" class="modal-trigger" href="#modal-excluir">
+                            <a style="color: #F44336;" class="modal-trigger delete" href="#modal-excluir">
                                 <i class="small material-icons">delete</i>
                             </a>
                             <a style="color: #43A047;" href="{{route('agendamento.agendar', $registro->id)}}"><i
