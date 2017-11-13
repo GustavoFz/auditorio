@@ -6,7 +6,6 @@
     <div class="container">
         <h3 class="center">Lista de auditórios</h3>
         <div class="row">
-
             <table class="centered striped">
                 <thead>
                 <tr>
@@ -31,19 +30,20 @@
                             <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar-{{$registro->id}}">
                                 <i class="small material-icons">create</i>
                             </a>
-                            <a style="color: #F44336;" class="modal-trigger delete" href="#modal-excluir-{{$registro->id}}">
+                            <a style="color: #F44336;" class="modal-trigger delete"
+                               href="#modal-excluir-{{$registro->id}}">
                                 <i class="small material-icons">delete</i>
                             </a>
-                            <a style="color: #43A047;" href="{{route('agendamento.agendar', $registro->id)}}"><i
-                                        class="small material-icons">date_range</i></a>
+                            <a style="color: #43A047;" href="{{route('agendamento.agendar', $registro->id)}}">
+                                <i class="small material-icons">date_range</i>
+                            </a>
                         </td>
                     </tr>
 
-
-                   <!-- Modal Editar -->
+                    <!-- Modal Editar -->
                     <div id="modal-editar-{{$registro->id}}" class="modal">
                         <div class="modal-content">
-                            <h4>Modal Header</h4>
+                            <h4 class="center-align">Editar Auditório</h4>
                             <form class="" action="{{route('admin.auditorio.atualizar', $registro->id)}}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
@@ -55,13 +55,14 @@
                         </div>
                     </div>
 
-                    
                     <!-- Modal Excluir -->
                     <div id="modal-excluir-{{$registro->id}}" class="modal">
                         <div class="modal-content">
                             <h5 class="center-align">Tem certeza que deseja excluir?</h5>
+                            <br>
                             <div class="center">
-                                 <a href="{{route('admin.auditorio.deletar', $registro->id)}}" class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
+                                <a href="{{route('admin.auditorio.deletar', $registro->id)}}"
+                                   class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Não</a>
                             </div>
                         </div>
@@ -76,7 +77,7 @@
             <!-- Modal Adicionar -->
             <div id="modal-adicionar" class="modal">
                 <div class="modal-content">
-                    <h4>Modal Header</h4>
+                    <h4 class="center-align">Adicionar Auditório</h4>
                     <form class="" action="{{route('admin.auditorio.salvar')}}" method="post">
                         {{ csrf_field() }}
                         @include('admin._form-adicionar')
@@ -84,8 +85,19 @@
                     </form>
                 </div>
             </div>
-            
+            <!-- Modal Login -->
+            <div id="modal-login" class="modal">
+                <div class="modal-content">
+                    <h4 class="center-align">Login</h4>
+
+                    <form class="" action="" method="post">
+                        {{ csrf_field() }}
+                        @include('agendamento._form-login')
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
 
 @endsection
