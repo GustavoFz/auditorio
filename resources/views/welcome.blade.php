@@ -6,7 +6,10 @@
 <div class="container">
   <h3 class="center-align">Página inicial</h3>
 </div>
+<<<<<<< HEAD
 
 <h5 class="center-align">Em breve...</h5>
 
+=======
+>>>>>>> correcoes
 @endsection

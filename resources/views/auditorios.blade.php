@@ -85,19 +85,6 @@
                     </form>
                 </div>
             </div>
-            <!-- Modal Login -->
-            <div id="modal-login" class="modal">
-                <div class="modal-content">
-                    <h4 class="center-align">Login</h4>
-
-                    <form class="" action="" method="post">
-                        {{ csrf_field() }}
-                        @include('agendamento._form-login')
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
-    </div>
-
 @endsection

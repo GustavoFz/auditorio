@@ -1,3 +1,16 @@
+<!-- Modal Login -->
+<div id="modal-login" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Login</h4>
+
+        <form class="" action="" method="post">
+            {{ csrf_field() }}
+            @include('agendamento._form-login')
+        </form>
+    </div>
+</div>
+
+
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -28,11 +41,6 @@
   function erroFormulario(){
       Materialize.toast('I am a toast!', 4000);
   }
-  $('.modal-trigger').on('click', function(){
-      var id = $(this).data('id'); // vamos buscar o valor do atributo data-id
-  });
-
-
 </script>
 </body>
 </html>
