@@ -14,3 +14,7 @@ Route::get('/auditorio/deletar/{id}',['as'=>'admin.auditorio.deletar','uses'=>'A
 Route::get('/agendamentos/',['as'=>'agendamento.listar','uses'=>'AgendamentoController@agendamentos']);
 Route::get('/agendamento/agendar/{id}',['as'=>'agendamento.agendar','uses'=>'AgendamentoController@agendar']);
 Route::post('/agendamento/salvar/',['as'=>'agendamento.salvar','uses'=>'AgendamentoController@salvar']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
