@@ -4,9 +4,9 @@
 
 @section('conteudo')
 <div class="container">
-  <h3>Página inicial</h3>
+  <h3 class="center-align">Página inicial</h3>
 </div>
 
-sdasdas
+<h5 class="center-align">Em breve...</h5>
 
 @endsection

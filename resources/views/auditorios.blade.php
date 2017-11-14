@@ -58,7 +58,7 @@
                     <!-- Modal Excluir -->
                     <div id="modal-excluir-{{$registro->id}}" class="modal">
                         <div class="modal-content">
-                            <h5 class="center-align">Tem certeza que deseja excluir?</h5>
+                            <h5 class="center-align">Tem certeza que deseja excluir o auditório {{$registro->numero.$registro->predio}}?</h5>
                             <br>
                             <div class="center">
                                 <a href="{{route('admin.auditorio.deletar', $registro->id)}}"
