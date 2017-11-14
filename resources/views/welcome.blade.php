@@ -6,7 +6,4 @@
 <div class="container">
   <h3>Página inicial</h3>
 </div>
-
-sdasdas
-
 @endsection
