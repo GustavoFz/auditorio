@@ -3,10 +3,19 @@
     <div class="modal-content">
         <h4 class="center-align">Login</h4>
 
-        <form class="" action="" method="post">
+        <form class="" action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             @include('agendamento._form-login')
         </form>
+        
+        <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Logout
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+
     </div>
 </div>
 
