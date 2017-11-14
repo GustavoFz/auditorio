@@ -1,6 +1,5 @@
 <?php
 
-Route::get('/home', ['as'=>'site.home','uses'=>'SiteController@home']);
 Route::get('/', ['as'=>'site.home','uses'=>'SiteController@home']);
 
 Route::get('/auditorios',['as'=>'site.auditorios','uses'=>'AuditorioController@index']);

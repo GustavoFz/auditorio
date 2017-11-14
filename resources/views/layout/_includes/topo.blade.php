@@ -24,14 +24,14 @@
                 <a href="/" class="brand-logo">Auditório</a>
                 <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/home">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/auditorios">Auditórios</a></li>
                     <li><a href="/agendamentos">Agendamentos</a></li>
                     <li><a class="waves-effect waves-light btn modal-trigger yellow accent-3 black-text" href="#modal-login">Login</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile">
                     <li><a class="waves-effect waves-light btn modal-trigger yellow accent-3 black-text" href="#modal-login">Login</a></li>
-                    <li><a href="/home">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/auditorios">Auditórios</a></li>
                     <li><a href="/agendamentos">Agendamentos</a></li>
                 </ul>
