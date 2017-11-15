@@ -28,10 +28,10 @@
     <div class="switch center">
         <h6>Possui Acessibilidade?</h6>
         <label>
-            Off
-            <input type="checkbox">
+            Não
+            <input type="checkbox" name="acessibilidade">
             <span class="lever"></span>
-            On
+            Sim
         </label>
     </div>
 

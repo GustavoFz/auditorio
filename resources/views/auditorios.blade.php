@@ -14,6 +14,7 @@
                     <th>Prédio</th>
                     <th>Descrição</th>
                     <th>Capacidade</th>
+                    <th>Acessibilidade</th>
                     <th>Ação</th>
                 </tr>
                 </thead>
@@ -26,6 +27,13 @@
                         <td>{{$registro->predio}}</td>
                         <td>{{$registro->descricao}}</td>
                         <td>{{$registro->capacidade}}</td>
+                        <td width="30px">
+                            @if($registro->acessibilidade == "sim")
+                                <i class="material-icons">check</i>
+                            @else
+                                <i class="material-icons">clear</i>
+                            @endif
+                        </td>
                         <td>
                             <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar-{{$registro->id}}">
                                 <i class="small material-icons">create</i>

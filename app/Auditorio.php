@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Auditorio extends Model
 {
     protected $fillable = [
-    	'numero', 'predio', 'descricao', 'capacidade'
+    	'numero', 'predio', 'descricao', 'capacidade', 'acessibilidade'
     ];
 
      public function agendamentos(){

@@ -19,6 +19,7 @@ class CreateAuditoriosTable extends Migration
             $table->string('predio');
             $table->text('descricao');
             $table->integer('capacidade');
+            $table->enum('acessibilidade',['sim', 'nao'])->default('nao');
             $table->timestamps();
         });
     }

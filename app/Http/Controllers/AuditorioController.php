@@ -8,6 +8,14 @@ class AuditorioController extends Controller
 {
       public function salvar(Request $req){
       $dados = $req->all();
+
+       if(isset($dados['acessibilidade']) == "on"){
+        $dados['acessibilidade'] = "sim";
+       }
+       else {
+        $dados['acessibilidade'] = "nao";
+       }
+      
       Auditorio::create($dados);
 
       return redirect()->back();
@@ -25,11 +33,19 @@ class AuditorioController extends Controller
     public function editar($id){
       $registro = Auditorio::find($id);
 
+
       return view('admin.editar', compact('registro'));
     }
 
     public function atualizar(Request $req, $id){
       $dados = $req->all();
+      
+      if(isset($dados['acessibilidade']) == "on"){
+        $dados['acessibilidade'] = "sim";
+       }
+       else {
+        $dados['acessibilidade'] = "nao";
+       }
 
       Auditorio::find($id)->update($dados);
 
