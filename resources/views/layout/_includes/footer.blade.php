@@ -50,6 +50,31 @@
   function erroFormulario(){
       Materialize.toast('I am a toast!', 4000);
   }
+  /*------------CARREGAMENTO AJAX------------*/
+  $(document).ready(function(){
+      // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered$('.btn_carrega_conteudo
+      $('.btn_carrega_conteudo').click(function () {
+
+          var carrega_url = this.id;
+          carrega_url = carrega_url;
+
+          $.ajax({
+
+              url: carrega_url,
+              success: function (data) {
+                  $('#div_conteudo').html(data);
+              },
+
+              beforeSend: function () {
+                  $('loader').css({display:"block"})
+              },
+
+              complete: function () {
+                  $('loader').css({display:"none  "})
+              }
+          })
+      })
+  });
 </script>
 </body>
 </html>
