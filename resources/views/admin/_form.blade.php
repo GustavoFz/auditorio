@@ -30,7 +30,7 @@
         <h6>Possui Acessibilidade?</h6>
         <label>
             Não
-            <input type="checkbox" name="acessibilidade">
+            <input type="checkbox" name="acessibilidade" {{$registro->acessibilidade == 'sim' ? 'checked=""' : ''}}>
             <span class="lever"></span>
             Sim
         </label>

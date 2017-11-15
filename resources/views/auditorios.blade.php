@@ -10,8 +10,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Sala</th>
-                    <th>Prédio</th>
+                    <th>Sala/Prédio</th>
                     <th>Descrição</th>
                     <th>Capacidade</th>
                     <th>Acessibilidade</th>
@@ -23,9 +22,8 @@
                 @foreach($registros as $registro)
                     <tr>
                         <td>{{$registro->id}}</td>
-                        <td>{{$registro->numero}}</td>
-                        <td>{{$registro->predio}}</td>
-                        <td>{{$registro->descricao}}</td>
+                        <td>{{$registro->numero}}/{{$registro->predio}}</td>
+                        <td>{{ str_limit($registro->descricao, 5) }}</td>
                         <td>{{$registro->capacidade}}</td>
                         <td width="30px">
                             @if($registro->acessibilidade == "sim")
