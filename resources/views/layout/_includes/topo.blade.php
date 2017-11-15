@@ -27,7 +27,12 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/auditorios">Auditórios</a></li>
                     <li><a href="/agendamentos">Agendamentos</a></li>
+                    @if(Auth::guest())
                     <li><a class="waves-effect waves-light btn modal-trigger yellow accent-3 black-text" href="#modal-login">Login</a></li>
+                  @else
+                    <li><a href="{{ route('logout') }}">{{Auth::user()->name}}</a></li>
+                  @endif
+                   
                 </ul>
                 <ul class="side-nav" id="mobile">
                     <li><a class="waves-effect waves-light btn modal-trigger yellow accent-3 black-text" href="#modal-login">Login</a></li>
