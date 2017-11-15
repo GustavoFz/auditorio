@@ -14,6 +14,9 @@ Route::get('/agendamentos/',['as'=>'agendamento.listar','uses'=>'AgendamentoCont
 Route::get('/agendamento/agendar/{id}',['as'=>'agendamento.agendar','uses'=>'AgendamentoController@agendar']);
 Route::post('/agendamento/salvar/',['as'=>'agendamento.salvar','uses'=>'AgendamentoController@salvar']);
 
-Auth::routes();
+// Auth::routes();
+Route::get('/login',['as'=>'site.login','uses'=>'LoginController@index']);
+Route::get('/login/sair',['as'=>'site.login.sair','uses'=>'LoginController@sair']);
+Route::post('/login/entrar',['as'=>'site.login.entrar','uses'=>'LoginController@entrar']);
 
 Route::get('/home', 'HomeController@index')->name('home');
