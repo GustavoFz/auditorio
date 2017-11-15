@@ -1,4 +1,4 @@
-@extends('layout.site')
+@extends('layout.site-conteudo  ')
 
 @section('titulo', 'Agendamentos')
 

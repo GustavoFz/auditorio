@@ -3,7 +3,7 @@
 @section('titulo', 'Página Inicial')
 
 @section('conteudo')
-<div class="container div_conteudo">
+<div id="div_conteudo">
   <h3 class="center-align">Página inicial</h3>
 
 

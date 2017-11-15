@@ -24,7 +24,7 @@
                 <a href="/" class="brand-logo">Auditório</a>
                 <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a class="btn_carrega_conteudo" href="#" id="home">Home</a></li>
+                    <li><a class="btn_carrega_conteudo" href="#" id="/">Home</a></li>
                     <li><a class="btn_carrega_conteudo" href="#" id="auditorios">Auditórios</a></li>
                     <li><a class="btn_carrega_conteudo" href="#" id="agendamentos">Agendamentos</a></li>
                     @if(Auth::guest())
