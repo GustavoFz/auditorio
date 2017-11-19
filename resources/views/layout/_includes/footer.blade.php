@@ -1,23 +1,25 @@
 <!-- Modal Login -->
 <div id="modal-login" class="modal">
     <div class="modal-content">
+        <ul class="tabs">
+            <li class="tab col s3"><a href="#login">Login</a></li>
+            <li class="tab col s3"><a href="#registro">Registrar</a></li>
+        </ul>
+    </div>
+    <div id="login" class="col s12">
         <h4 class="center-align">Login</h4>
 
         <form class="" action="{{ route('site.login.entrar') }}" method="post">
             {{ csrf_field() }}
             @include('agendamento._form-login')
         </form>
-        
-        <a href="{{ route('site.login.sair') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            Logout
-        </a>
-
-        <form id="logout-form" action="{{ route('site.login.sair') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
 
     </div>
-</div>
+    <div id="registro" class="col s12">
+        <h4 class="center-align">Registro</h4>
+    </div>
+
+    </div>
 
 
 <!--Import jQuery before materialize.js-->
@@ -50,6 +52,10 @@
   function erroFormulario(){
       Materialize.toast('I am a toast!', 4000);
   }
+  $(document).ready(function(){
+      $('ul.tabs').tabs();
+  });
+
 </script>
 </body>
 </html>

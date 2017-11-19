@@ -16,6 +16,7 @@ class AdminSeeder extends Seeder
         	'name'=>"admin",
         	'email'=>"admin@mail.com",
         	'password'=>bcrypt("auditorio@951"),
+        	'acesso'=>"admin"
         ];
 
         if(User::where('email', '=', $admin['email'])->count()) {

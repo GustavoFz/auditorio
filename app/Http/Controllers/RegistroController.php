@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class RegistroController extends Controller
 {
@@ -11,8 +12,12 @@ class RegistroController extends Controller
     	return view('registro');
     }
 
-    public function registrar(){
-    	
-    	return view('welcome');
+    public function registrar(Request $req){
+        $dados = $req->all();
+        $dados['password'] = bcrypt($dados['password']);
+        $dados['acesso'] = 'usuario';
+
+        User::create($dados);
     }
+
 }
