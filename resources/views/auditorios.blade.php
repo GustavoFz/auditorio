@@ -36,11 +36,10 @@
                             <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar-{{$registro->id}}">
                                 <i class="small material-icons">create</i>
                             </a>
-                            <a style="color: #F44336;" class="modal-trigger delete"
-                               href="#modal-excluir-{{$registro->id}}">
+                            <a style="color: #F44336;" class="modal-trigger delete" href="#modal-excluir-{{$registro->id}}">
                                 <i class="small material-icons">delete</i>
                             </a>
-                            <a style="color: #43A047;" href="{{route('agendamento.agendar', $registro->id)}}">
+                            <a style="color: #43A047;" class="modal-trigger" href="#modal-agendar-{{$registro->id}}">
                                 <i class="small material-icons">date_range</i>
                             </a>
                         </td>
@@ -71,6 +70,20 @@
                                    class="modal-action modal-close waves-effect waves-green btn red">Sim</a>
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Não</a>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Agendar -->
+                    <div id="modal-agendar-{{$registro->id}}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="center-align">Agendar Auditório</h4>
+                            <form class="" action="{{route('', $registro->id)}}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="_method" value="put">
+                                @include('agendamento.agendar')
+
+                                <button class="btn deep-orange">Agendar</button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
