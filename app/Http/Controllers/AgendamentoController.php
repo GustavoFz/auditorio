@@ -17,7 +17,7 @@ class AgendamentoController extends Controller
 
     public function agendar($id){
     	$registro = Auditorio::find($id);
-      $agendamentos = Agendamento::where('auditorio_id','=', $id)->get();
+        $agendamentos = Agendamento::where('auditorio_id','=', $id)->get();
 
 
     	return view('agendamento.agendamento', compact('registro', 'agendamentos'));
@@ -27,7 +27,6 @@ class AgendamentoController extends Controller
    	  $dados = $req->all();
 
       if(isset($dados['manha']) == false && isset($dados['tarde']) == false && isset($dados['noite']) == false){
-        
         $validatedData = $req->validate([
         'manha' => 'required',
        ]);

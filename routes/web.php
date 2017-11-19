@@ -20,3 +20,7 @@ Route::get('/login/sair',['as'=>'site.login.sair','uses'=>'LoginController@sair'
 Route::post('/login/entrar',['as'=>'site.login.entrar','uses'=>'LoginController@entrar']);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Pesquisa
+Route::get('/pesquisa',['as'=>'pesquisa','uses'=>'PesquisaController@index']);
+Route::post('/pesquisar',['as'=>'pesquisar','uses'=>'PesquisaController@pesquisar']);
