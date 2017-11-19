@@ -14,18 +14,12 @@
 </div>
 <div class="row">
     <div class="col s6">
-        <div class="col s6"
-        <p class="left-align medium-small">
-            <a href="#">Esqueceu a senha?</a>
-        </p>
+        <a class="btn waves-effect waves-light yellow black-text" href="/registro">Registrar</a>
     </div>
 
-    <input type="checkbox" class="filled-in checkbox-custom" id="filled-in-box" checked="checked"/>
-    <label for="filled-in-box">Lembrar senha</label>
-
-</div>
-<div class="col s6">
-    <button class="btn waves-effect waves-light right" type="submit" name="action">Entrar
-        <i class="material-icons right">send</i>
-    </button>
+    <div class="col s6">
+        <button class="btn waves-effect waves-light right black yellow-text" type="submit" name="action">Entrar
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
 </div>

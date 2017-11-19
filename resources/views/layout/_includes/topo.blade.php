@@ -32,7 +32,7 @@
                                href="#modal-login">Login</a></li>
                     @else
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='dropdown1'>{{Auth::user()->name}}</a>
+                        <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='dropdown1'>{{str_limit(Auth::user()->name, 16)}}</a>
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>

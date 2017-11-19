@@ -4,17 +4,12 @@
 
 @section('conteudo')
 <div class="container">
-  <h3 class="center-align">Página inicial</h3>
-
-
-<h5 class="center-align">Em breve...</h5>
 
 	 @if(Auth::guest())
-	            <h1>Voce nao esta logado</h1> 
+	            <h3 class="center-align">Bem-vindo!</h3>
+	            <p class="center-align">Para efetuar um agendamento, faça login</p> 
 	          @else
-				<h1>Logado</h1> 
-				{{ Auth::user()->name }}
-				
+				<h3 class="center-align">Bem-vindo, {{ Auth::user()->name }}!</h3>
 	          @endif
 </div>
 @endsection
