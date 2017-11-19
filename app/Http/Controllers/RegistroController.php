@@ -18,6 +18,7 @@ class RegistroController extends Controller
         $dados['acesso'] = 'usuario';
 
         User::create($dados);
+        return view('welcome');
     }
 
 }
