@@ -25,7 +25,6 @@
             <th>E-mail</th>
             <th>Data</th>
             <th>Turno</th>
-            <th>Ação</th>
           </tr>
         </thead>
 
@@ -41,10 +40,6 @@
             <a class="{{$agendamento->manha == 'sim' ? 'btn disabled' : 'btn green'}}" href="#">Manhã</a>
             <a class="{{$agendamento->tarde == 'sim' ? 'btn disabled' : 'btn green'}}" href="#">Tarde</a>
             <a class="{{$agendamento->noite == 'sim' ? 'btn disabled' : 'btn green'}}" href="#">Noite</a>
-          </td>
-          <td>
-            <a style="color: #ff9800;" href=""><i class="material-icons">create</i></a>
-            <a style="color: #F44336;" href=""><i class="material-icons">delete</i></a>
           </td>
           </tr>
          @endforeach
