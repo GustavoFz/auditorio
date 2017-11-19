@@ -90,6 +90,17 @@
   </div>
 
 	</form>
+
 </div>
+
+@foreach($agendamentos as $agendamento)
+  Id agendamento: {{$agendamento->id}}<br>
+  $testes = $agendamento->turnos()->get();
+  @foreach($testes as $turno)
+    {{$turno}}
+    <br>
+  @endforeach
+  <br>
+@endforeach
 
 @endsection

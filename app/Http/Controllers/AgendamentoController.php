@@ -11,13 +11,14 @@ class AgendamentoController extends Controller
 {
     public function agendamentos(){
       $agendamentos = Agendamento::all();
+      $turnos = AgendamentoTurno::all();
 
-      return view('agendamento.listaAgendamentos', compact('agendamentos'));
+      return view('agendamento.listaAgendamentos', compact('agendamentos','turnos'));
     }
 
     public function agendar($id){
     	$registro = Auditorio::find($id);
-        $agendamentos = Agendamento::where('auditorio_id','=', $id)->get();
+      $agendamentos = Agendamento::where('auditorio_id','=', $id)->get();
 
 
     	return view('agendamento.agendamento', compact('registro', 'agendamentos'));
