@@ -25,12 +25,13 @@
                 <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/auditorios">Auditórios</a></li>
-                    <li><a href="/agendamentos">Agendamentos</a></li>
+
                     @if(Auth::guest())
                         <li><a class="btn modal-trigger yellow accent-3 black-text"
                                href="#modal-login">Login</a></li>
                     @else
+                        <li><a href="/auditorios">Auditórios</a></li>
+                        <li><a href="/agendamentos">Agendamentos</a></li>
                         <!-- Dropdown Trigger -->
                         <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='dropdown1'>{{str_limit(Auth::user()->name, 16)}}</a>
 
@@ -42,11 +43,23 @@
 
                 </ul>
                 <ul class="side-nav" id="mobile">
-                    <li><a class="waves-effect waves-light btn modal-trigger yellow accent-3 black-text"
-                           href="#modal-login">Login</a></li>
+
                     <li><a href="/">Home</a></li>
-                    <li><a href="/auditorios">Auditórios</a></li>
-                    <li><a href="/agendamentos">Agendamentos</a></li>
+
+                    @if(Auth::guest())
+                        <li><a class="btn modal-trigger yellow accent-3 black-text"
+                               href="#modal-login">Login</a></li>
+                    @else
+                        <li><a href="/auditorios">Auditórios</a></li>
+                        <li><a href="/agendamentos">Agendamentos</a></li>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='dropdown1'>{{str_limit(Auth::user()->name, 16)}}</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="{{ route('site.login.sair') }}">Sair</a></li>
+                        </ul>
+                    @endif
                 </ul>
             </div>
         </div>

@@ -9,11 +9,11 @@
     @if($agendamentos->isEmpty() == false)
 
     <div class="row" align="center">
-      <div  class="col m3">
-        <a class="btn green "></a> Turno disponível
+      <div  class="col m6">
+        <a class="btn green ">Turno Disponível</a>
       </div>
-      <div class="col m3">
-        <a class="btn disabled" href="#"></a> Turno agendado
+      <div class="col m6">
+        <a class="btn red">Turno Indisponível</a>
       </div>
     </div>
 
@@ -34,9 +34,9 @@
           <td>{{$agendamento->email}}</td>
           <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
           <td width="50%">
-            <a class="{{$agendamento->manha == 'sim' ? 'btn disabled' : 'btn green'}}" href="#">Manhã</a>
-            <a class="{{$agendamento->tarde == 'sim' ? 'btn disabled' : 'btn green'}}" href="#">Tarde</a>
-            <a class="{{$agendamento->noite == 'sim' ? 'btn disabled' : 'btn green'}}" href="#">Noite</a>
+            <a class="{{$agendamento->manha == 'sim' ? 'btn red' : 'btn green'}}">Manhã</a>
+            <a class="{{$agendamento->tarde == 'sim' ? 'btn red' : 'btn green'}}">Tarde</a>
+            <a class="{{$agendamento->noite == 'sim' ? 'btn red' : 'btn green'}}">Noite</a>
           </td>
           </tr>
          @endforeach
