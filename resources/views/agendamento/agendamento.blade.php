@@ -34,25 +34,29 @@
                             <td>{{$agendamento->user->email}}</td>
                             <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
                             <td width="50%">
-                                @if($agendamento->turnos()->get()->isNotEmpty())
-                                    @foreach($agendamento->turnos()->get() as $turno)
-                                        @if($turno->turno == 'manha')
-                                            <a class="btn green">{{$turno->turno}}</a>
-                                        @else
-                                            <a class="btn red">manha</a>
-                                        @endif
-                                        @if($turno->turno == 'tarde')
-                                            <a class="btn green">{{$turno->turno}}</a>
-                                        @else
-                                            <a class="btn red">tarde</a>
-                                        @endif
-                                        @if($turno->turno == 'noite')
-                                            <a class="btn green">{{$turno->turno}}</a>
-                                        @else
-                                            <a class="btn red">noite</a>
-                                        @endif
-                                    @endforeach
-                                @endif
+                                @php
+                                  $turnos = $agendamento->turnos()->get();
+                                @endphp
+
+                                @isset($turnos[0])
+                                  <a class="btn green">{{$turnos[0]->turno}}</a>
+                                @else
+                                  <a class="btn red">Manha</a>
+                                @endisset
+
+                                @isset($turnos[1])
+                                  <a class="btn green">{{$turnos[1]->turno}}</a>
+                                @else
+                                  <a class="btn red">Tarde</a>
+                                @endisset
+
+                                @isset($turnos[2])
+                                  <a class="btn green">{{$turnos[2]->turno}}</a>
+                                @else
+                                  <a class="btn red">Noite</a>
+                                @endisset
+
+
                             </td>
                         </tr>
                         @endforeach
