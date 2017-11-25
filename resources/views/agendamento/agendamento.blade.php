@@ -24,7 +24,6 @@
             <th>E-mail</th>
             <th>Data</th>
             <th>Turno</th>
-            <th>teste</th>
           </tr>
         </thead>
 
@@ -35,12 +34,11 @@
           <td>{{$agendamento->user->email}}</td>
           <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
           <td width="50%">
-            <a class="{{$agendamento->turno == 'manha' ? 'btn red' : 'btn green'}}">Manhã</a>
-            <a class="{{$agendamento->turno == 'tarde' ? 'btn red' : 'btn green'}}">Tarde</a>
-            <a class="{{$agendamento->turno == 'noite' ? 'btn red' : 'btn green'}}">Noite</a>
-          </td>
-          <td width="50%">
-            {{$agendamento->turnos->id}}
+            @if($agendamento->turnos()->get()->isNotEmpty())
+              @foreach($agendamento->turnos()->get() as $turno)
+              <a class="btn red">{{$turno->turno}}</a>
+              @endforeach
+            @endif
           </td>
           </tr>
          @endforeach
