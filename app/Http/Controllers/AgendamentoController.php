@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Auditorio;
 use App\Agendamento;
 use App\AgendamentoTurno;
+use Carbon\Carbon;
 
 class AgendamentoController extends Controller
 {
@@ -24,30 +25,32 @@ class AgendamentoController extends Controller
     }
 
     public function salvar(Request $req){
-   	  $dados = $req->all();
+      $dados = $req->all();
+      
+      $agendamento = Agendamento::create($dados);
 
-      if(isset($dados['manha']) == false && isset($dados['tarde']) == false && isset($dados['noite']) == false){
-        
-        $validatedData = $req->validate([
-        'manha' => 'required',
-       ]);
-        return redirect()->back();
-      }
-
-      $id = Agendamento::create($dados);
       if (isset($dados['manha']) && $dados['manha'] == "sim"){
-        $turno = ['turno'=>'manha', 'status'=>'PENDENTE', 'agendamento_id'=>$id->id];
-        AgendamentoTurno::create($turno);
+       $registro = ['agendamento_id' => $agendamento->id,
+                 'turno'=>'manha',
+                 'status'=>'PENDENTE'
+                ];
+        AgendamentoTurno::create($registro);
       }
       if (isset($dados['tarde']) && $dados['tarde'] == "sim"){
-        $turno = ['turno'=>'tarde', 'status'=>'PENDENTE', 'agendamento_id'=>$id->id];
-        AgendamentoTurno::create($turno);
+       $registro = ['agendamento_id' => $agendamento->id,
+                 'turno'=>'tarde',
+                 'status'=>'PENDENTE'
+                ];
+        AgendamentoTurno::create($registro);
       }
       if (isset($dados['noite']) && $dados['noite'] == "sim"){
-        $turno = ['turno'=>'noite', 'status'=>'PENDENTE', 'agendamento_id'=>$id->id];
-        AgendamentoTurno::create($turno);
+       $registro = ['agendamento_id' => $agendamento->id,
+                 'turno'=>'noite',
+                 'status'=>'PENDENTE'
+                ];
+        AgendamentoTurno::create($registro);
       }
-
+      
 
       //return redirect()->route('agendamento.agendar', ['id' => $dados['auditorio_id']]);
       return redirect()->back();
