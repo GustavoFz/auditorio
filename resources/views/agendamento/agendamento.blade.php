@@ -3,117 +3,131 @@
 @section('titulo', 'Agendar auditório')
 
 @section('conteudo')
-<div class="container">
-  <div class="row">
-    <h4>Agendamentos do auditório {{$registro->numero.$registro->predio}}</h4>
-    @if($agendamentos->isEmpty() == false)
+    <div class="container">
+        <div class="row">
+            <h4>Agendamentos do auditório {{$registro->numero.$registro->predio}}</h4>
+            @if($agendamentos->isEmpty() == false)
 
-    <div class="row" align="center">
-      <div  class="col m6">
-        <a class="btn green ">Turno Disponível</a>
-      </div>
-      <div class="col m6">
-        <a class="btn red">Turno Indisponível</a>
-      </div>
-    </div>
+                <div class="row" align="center">
+                    <div class="col m6">
+                        <a class="btn green ">Turno Disponível</a>
+                    </div>
+                    <div class="col m6">
+                        <a class="btn red">Turno Indisponível</a>
+                    </div>
+                </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>E-mail</th>
-            <th>Data</th>
-            <th>Turno</th>
-          </tr>
-        </thead>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>E-mail</th>
+                        <th>Data</th>
+                        <th>Turno</th>
+                    </tr>
+                    </thead>
 
-       @foreach($agendamentos as $agendamento)
-        <tbody>
-          <tr>
-          <td>{{$agendamento->id}}</td>
-          <td>{{$agendamento->user->email}}</td>
-          <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
-          <td width="50%">
-            @if($agendamento->turnos()->get()->isNotEmpty())
-              @foreach($agendamento->turnos()->get() as $turno)
-              <a class="btn red">{{$turno->turno}}</a>
-              @endforeach
+                    @foreach($agendamentos as $agendamento)
+                        <tbody>
+                        <tr>
+                            <td>{{$agendamento->id}}</td>
+                            <td>{{$agendamento->user->email}}</td>
+                            <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
+                            <td width="50%">
+                                @if($agendamento->turnos()->get()->isNotEmpty())
+                                    @foreach($agendamento->turnos()->get() as $turno)
+                                        @if($turno->turno == 'manha')
+                                            <a class="btn green">{{$turno->turno}}</a>
+                                        @else
+                                            <a class="btn red">manha</a>
+                                        @endif
+                                        @if($turno->turno == 'tarde')
+                                            <a class="btn green">{{$turno->turno}}</a>
+                                        @else
+                                            <a class="btn red">tarde</a>
+                                        @endif
+                                        @if($turno->turno == 'noite')
+                                            <a class="btn green">{{$turno->turno}}</a>
+                                        @else
+                                            <a class="btn red">noite</a>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                </table>
+            @else
+                <p>Não há agendamentos</p>
             @endif
-          </td>
-          </tr>
-         @endforeach
-        </tbody>
-      </table>
-    @else
-      <p>Não há agendamentos</p>
-    @endif
-  </div>
+        </div>
 
-  <h3 class="center">Agendar auditório</h3>
+        <h3 class="center">Agendar auditório</h3>
 
-<table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Sala</th>
-          <th>Prédio</th>
-          <th>Descrição</th>
-          <th>Capacidade</th>
-          <th>Data</th>
-          <th>Turno</th>
-        </tr>
-      </thead>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sala</th>
+                <th>Prédio</th>
+                <th>Descrição</th>
+                <th>Capacidade</th>
+                <th>Data</th>
+                <th>Turno</th>
+            </tr>
+            </thead>
 
-      <tbody>
-          <tr>
-            <td>{{$registro->id}}</td>
-            <td>{{$registro->numero}}</td>
-            <td>{{$registro->predio}}</td>
-            <td>{{$registro->descricao}}</td>
-            <td width="150px">{{$registro->capacidade}}</td>
-            <td width="200px">
-            	<form class="" action="{{route('agendamento.salvar')}}" method="post">
-            		<input type="date" name="dataAgendamento" placeholder="Clique aqui"  >
-            </td>
-            <td>
-            	
-					{{ csrf_field() }}
-          <input type="hidden" name="auditorio_id" value="{{$registro->id}}">
-					<input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-					<div class="">
-					  <p>
-					  <input type="checkbox" id="manha" name="manha" value="sim"/>
-					    <label for="manha">Manhã</label>
-					  </p>
-					</div>
+            <tbody>
+            <tr>
+                <td>{{$registro->id}}</td>
+                <td>{{$registro->numero}}</td>
+                <td>{{$registro->predio}}</td>
+                <td>{{$registro->descricao}}</td>
+                <td width="150px">{{$registro->capacidade}}</td>
+                <td width="200px">
+                    <form class="" action="{{route('agendamento.salvar')}}" method="post">
+                        <input type="date" name="dataAgendamento" placeholder="Clique aqui">
+                </td>
+                <td>
 
-					<div class="">
-					  <p>
-					  <input type="checkbox" id="tarde" name="tarde" value="sim" />
-					    <label for="tarde">Tarde</label>
-					  </p>
-					</div>
+                    {{ csrf_field() }}
+                    <input type="hidden" name="auditorio_id" value="{{$registro->id}}">
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                    <div class="">
+                        <p>
+                            <input type="checkbox" id="manha" name="manha" value="sim"/>
+                            <label for="manha">Manhã</label>
+                        </p>
+                    </div>
 
-					<div class="">
-					  <p>
-					  <input type="checkbox" id="noite" name="noite" value="sim"/>
-					    <label for="noite">Noite</label>
-					  </p>
-            
-					</div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+                    <div class="">
+                        <p>
+                            <input type="checkbox" id="tarde" name="tarde" value="sim"/>
+                            <label for="tarde">Tarde</label>
+                        </p>
+                    </div>
 
-    	<button class="btn deep-orange">Agendar</button>
-        
-	</form>
+                    <div class="">
+                        <p>
+                            <input type="checkbox" id="noite" name="noite" value="sim"/>
+                            <label for="noite">Noite</label>
+                        </p>
 
-  @if ($errors->any())
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-  @endif
+        <button class="btn deep-orange">Agendar</button>
 
-</div>
+        </form>
+
+        @if ($errors->any())
+
+        @endif
+
+    </div>
 
 @endsection
