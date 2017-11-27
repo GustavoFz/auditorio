@@ -33,7 +33,6 @@ class AgendamentoController extends Controller
        ]);
         return redirect()->back();
       }
-
       $id = Agendamento::create($dados);
       if (isset($dados['manha']) && $dados['manha'] == "sim"){
         $turno = ['turno'=>'manha', 'status'=>'PENDENTE', 'agendamento_id'=>$id->id];

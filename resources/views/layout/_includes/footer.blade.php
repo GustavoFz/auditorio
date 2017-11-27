@@ -29,10 +29,11 @@
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year,
-        today: 'Today',
-        clear: 'Clear',
+        today: 'Hoje',
+        clear: 'Limpar',
         close: 'Ok',
-        closeOnSelect: false // Close upon selecting a date,
+        closeOnSelect: true, // Close upon selecting a date,
+        format: 'yyyy-mm-dd'
     });
 
     $(document).ready(function () {

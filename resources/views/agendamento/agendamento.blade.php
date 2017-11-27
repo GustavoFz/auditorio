@@ -72,7 +72,7 @@
             <td width="150px">{{$registro->capacidade}}</td>
             <td width="200px">
             	<form class="" action="{{route('agendamento.salvar')}}" method="post">
-            		<input type="date" name="dataAgendamento" placeholder="Clique aqui" required="true" >
+                <input type="text" name="dataAgendamento" placeholder="Selecione uma data" required="true" class="datepicker">
             </td>
             <td>
             	
