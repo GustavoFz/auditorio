@@ -14,7 +14,7 @@
 </div>
 <div class="row">
     <div class="col s6">
-        <a class="btn waves-effect waves-light yellow black-text" href="/registro">Registrar</a>
+        <a class="btn waves-effect waves-light yellow black-text" href="/register">Registrar</a>
     </div>
 
     <div class="col s6">

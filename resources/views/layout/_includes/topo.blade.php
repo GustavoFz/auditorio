@@ -37,7 +37,7 @@
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>
-                            <li><a href="{{ route('site.login.sair') }}">Sair</a></li>
+                            <li><a href="{{ route('logout') }}">Sair</a></li>
                         </ul>
                     @endif
 
@@ -57,7 +57,7 @@
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>
-                            <li><a href="{{ route('site.login.sair') }}">Sair</a></li>
+                            <li><a href="{{ route('logout') }}">Sair</a></li>
                         </ul>
                     @endif
                 </ul>

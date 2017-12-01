@@ -4,7 +4,7 @@
         <div id="login" class="col s12">
             <h4 class="center-align">Login</h4>
 
-            <form class="" action="{{ route('site.login.entrar') }}" method="post">
+            <form class="" action="{{ route('login') }}" method="post">
                 {{ csrf_field() }}
                 @include('agendamento._form-login')
             </form>
