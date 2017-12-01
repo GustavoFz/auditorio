@@ -22,7 +22,7 @@ class AuditorioController extends Controller
   }
 
   public function index(){
-    $registros = Auditorio::all();
+    $registros = Auditorio::paginate(5);
     return view('auditorios', compact('registros'));
   }
 

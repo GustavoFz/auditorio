@@ -81,6 +81,9 @@
                 </tbody>
             </table>
         </div>
+        <div style="text-align: center;"> 
+            {{ $registros->links() }}
+        </div>
         @can('create', \App\Auditorio::class)
         <div class="row">
             <a class="waves-effect waves-light btn modal-trigger" href="#modal-adicionar">Adicionar</a>
