@@ -33,13 +33,17 @@
                             @endif
                         </td>
                         <td>
+                            @can('edit', \App\Auditorio::class)
                             <a style="color: #ff9800;" class="modal-trigger" href="#modal-editar-{{$registro->id}}">
                                 <i class="small material-icons">create</i>
                             </a>
+                            @endcan
+                            @can('delete', \App\Auditorio::class)
                             <a style="color: #F44336;" class="modal-trigger delete"
                                href="#modal-excluir-{{$registro->id}}">
                                 <i class="small material-icons">delete</i>
                             </a>
+                            @endcan
                             <a style="color: #43A047;" href="{{route('agendamento.agendar', $registro->id)}}">
                                 <i class="small material-icons">date_range</i>
                             </a>

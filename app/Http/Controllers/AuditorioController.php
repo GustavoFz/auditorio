@@ -6,55 +6,56 @@ use Illuminate\Http\Request;
 use App\Auditorio;
 class AuditorioController extends Controller
 {
-      public function salvar(Request $req){
-      $dados = $req->all();
+  public function salvar(Request $req){
+    $dados = $req->all();
 
-       if(isset($dados['acessibilidade']) == "on"){
-        $dados['acessibilidade'] = "sim";
-       }
-       else {
-        $dados['acessibilidade'] = "nao";
-       }
-      
-      Auditorio::create($dados);
-
-      return redirect()->back();
+    if(isset($dados['acessibilidade']) == "on"){
+      $dados['acessibilidade'] = "sim";
+    }
+    else {
+      $dados['acessibilidade'] = "nao";
     }
 
-    public function index(){
-      $this->authorize('view', Auditorio::class);
-      $registros = Auditorio::all();
-      return view('auditorios', compact('registros'));
+    Auditorio::create($dados);
+
+    return redirect()->back();
+  }
+
+  public function index(){
+    $registros = Auditorio::all();
+    return view('auditorios', compact('registros'));
+  }
+
+  public function adicionar(){
+    return view('admin.adicionar');
+  }
+
+  public function editar($id){
+    $this->authorize('edit', Auditorio::class);
+    $registro = Auditorio::find($id);
+
+    return view('admin.editar', compact('registro'));
+  }
+
+  public function atualizar(Request $req, $id){
+    $this->authorize('edit', Auditorio::class);
+    $dados = $req->all();
+
+    if(isset($dados['acessibilidade']) == "on"){
+      $dados['acessibilidade'] = "sim";
+    }
+    else {
+      $dados['acessibilidade'] = "nao";
     }
 
-    public function adicionar(){
-      return view('admin.adicionar');
-    }
+    Auditorio::find($id)->update($dados);
 
-    public function editar($id){
-      $registro = Auditorio::find($id);
+    return redirect()->back();
+  }
 
-
-      return view('admin.editar', compact('registro'));
-    }
-
-    public function atualizar(Request $req, $id){
-      $dados = $req->all();
-      
-      if(isset($dados['acessibilidade']) == "on"){
-        $dados['acessibilidade'] = "sim";
-       }
-       else {
-        $dados['acessibilidade'] = "nao";
-       }
-
-      Auditorio::find($id)->update($dados);
-
-      return redirect()->back();
-    }
-
-    public function deletar($id){
-      Auditorio::find($id)->delete();
-      return redirect()->back();
-    }
+  public function deletar($id){
+    $this->authorize('delete', Auditorio::class);
+    Auditorio::find($id)->delete();
+    return redirect()->back();
+  }
 }
