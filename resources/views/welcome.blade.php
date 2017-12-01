@@ -10,6 +10,11 @@
 	<p class="center-align">Para efetuar um agendamento, faça login</p> 
 	@else
 	<h3 class="center-align">Bem-vindo, {{ Auth::user()->name }}!</h3>
+
+	@foreach(Auth::user()->habilidades() as $habilidade)
+    	{{$habilidade->name}}<br>
+    @endforeach
+	
 	<a href="{{ route('logout') }}"
 	onclick="event.preventDefault();
 	document.getElementById('logout-form').submit();">
@@ -20,7 +25,6 @@
 		{{ csrf_field() }}
 	</form>
 @endif
-
 
 
 </div>

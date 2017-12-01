@@ -22,8 +22,9 @@ class AuditorioController extends Controller
     }
 
     public function index(){
-    $registros = Auditorio::all();
-    return view('auditorios', compact('registros'));
+      $this->authorize('view', Auditorio::class);
+      $registros = Auditorio::all();
+      return view('auditorios', compact('registros'));
     }
 
     public function adicionar(){
