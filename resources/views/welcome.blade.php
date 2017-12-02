@@ -3,19 +3,18 @@
 @section('titulo', 'Página Inicial')
 
 @section('conteudo')
-<div class="container">
+    <div class="container">
 
-	@if(Auth::guest())
-	<h3 class="center-align">Bem-vindo!</h3>
-	<p class="center-align">Para efetuar um agendamento, faça login</p> 
-	@else
-	<h3 class="center-align">Bem-vindo, {{ Auth::user()->name }}!</h3>
+        @if(Auth::guest())
+            <h3 class="center-align">Bem-vindo!</h3>
+            <p class="center-align">Para efetuar um agendamento, faça login</p>
+        @else
+            <h3 class="center-align">Bem-vindo, {{ Auth::user()->name }}!</h3>
 
-	@foreach(Auth::user()->habilidades() as $habilidade)
-    	{{$habilidade->name}}<br>
-    @endforeach
-@endif
+            @foreach(Auth::user()->habilidades() as $habilidade)
+                {{$habilidade->name}}<br>
+            @endforeach
+        @endif
 
-
-</div>
+    </div>
 @endsection
