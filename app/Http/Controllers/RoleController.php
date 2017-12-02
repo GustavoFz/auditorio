@@ -21,9 +21,9 @@ class RoleController extends Controller
 		Bouncer::allow('user')->to('create', Agendamento::class);
 
 		$user1 = User::find(1);
-		$user2 = User::find(3);
+		//$user2 = User::find(3);
 		$user1->assign('admin');
-		$user2->assign('user');
+		//$user2->assign('user');
 		return redirect()->back();
 	}
 }
