@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Bouncer;
 use App\User;
 use App\Auditorio;
+use App\Agendamento;
 
 
 class RoleController extends Controller
