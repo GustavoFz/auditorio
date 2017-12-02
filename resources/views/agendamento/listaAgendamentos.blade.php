@@ -34,7 +34,7 @@
                         <tr>
                             <td>{{$agendamento->id}}</td>
                             <td>{{$agendamento->sala->numero}}/{{$agendamento->sala->predio}}</td>
-                            <td>{{$agendamento->email}}</td>
+                            <td>{{$agendamento->user->email}}</td>
                             <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
                             <td>
                                 <a class="{{$agendamento->manha == 'sim' ? 'btn red' : 'btn green'}}">Manhã</a>

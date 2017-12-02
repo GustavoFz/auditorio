@@ -25,6 +25,7 @@ class AgendamentoController extends Controller
 
     public function salvar(Request $req){
    	  $dados = $req->all();
+      //dd($dados);
 
       if(isset($dados['manha']) == false && isset($dados['tarde']) == false && isset($dados['noite']) == false){
         

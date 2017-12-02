@@ -17,7 +17,7 @@
       </div>
     </div>
 
-      <table>
+      <table class="striped centered">
         <thead>
           <tr>
             <th>ID</th>
@@ -31,7 +31,7 @@
         <tbody>
           <tr>
           <td>{{$agendamento->id}}</td>
-          <td>{{$agendamento->email}}</td>
+          <td>{{$agendamento->user->email}}</td>
           <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
           <td width="50%">
             <a class="{{$agendamento->manha == 'sim' ? 'btn red' : 'btn green'}}">Manhã</a>
@@ -77,7 +77,8 @@
             <td>
             	
 					{{ csrf_field() }}
-					<input type="hidden" name="auditorio_id" value="{{$registro->id}}">
+          <input type="hidden" name="auditorio_id" value="{{$registro->id}}">
+					<input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 					<div class="">
 					  <p>
 					  <input type="checkbox" id="manha" name="manha" value="sim"/>

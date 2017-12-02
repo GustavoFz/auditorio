@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
+use App\Agendamento;
 
 class User extends Authenticatable
 {
@@ -32,5 +33,9 @@ class User extends Authenticatable
     public function habilidades()
     {
       return $this->getAbilities();
+    }
+
+    public function agendamentos(){
+      return $this->hasMany(Agendamento::class, 'user_id', 'id');
     }
 }
