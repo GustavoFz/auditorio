@@ -33,10 +33,10 @@
                         <li><a href="/auditorios">Auditórios</a></li>
                         <li><a href="/agendamentos">Agendamentos</a></li>
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='dropdown1'>{{str_limit(Auth::user()->name, 16)}}</a>
+                        <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='drop'>{{str_limit(Auth::user()->name, 16)}}</a>
 
                         <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
+                        <ul id='drop' class='dropdown-content'>
                             <li><a href="{{ route('logout') }}">Sair</a></li>
                         </ul>
                     @endif
