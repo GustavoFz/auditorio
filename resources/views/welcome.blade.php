@@ -4,8 +4,6 @@
 
 @section('conteudo')
     <div class="container">
-
-<<<<<<< HEAD
 	@if(Auth::guest())
 		<h3 class="center-align">Bem-vindo!</h3>
 		<p class="center-align">Para efetuar um agendamento, faça login</p> 
@@ -50,4 +48,4 @@
 	@endforelse
 
 </div>
-
+@endsection
