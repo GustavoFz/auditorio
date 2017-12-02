@@ -5,7 +5,7 @@
 @section('conteudo')
 <div class="container">
   <div class="row">
-    <h4>Agendamentos do auditório {{$registro->numero.$registro->predio}}</h4>
+    <h4 class="center">Agendamentos do auditório {{$registro->numero.$registro->predio}}</h4>
     @if($agendamentos->isEmpty() == false)
 
     <div class="row" align="center">
