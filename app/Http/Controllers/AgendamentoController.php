@@ -53,7 +53,7 @@ class AgendamentoController extends Controller
     }
 
     public function editar($id){
-      $registro = Auditorio::find($id);
+      $registro = Agendamento::find($id);
 
       return view('admin.editar', compact('registro'));
     }
@@ -61,13 +61,28 @@ class AgendamentoController extends Controller
     public function atualizar(Request $req, $id){
       $dados = $req->all();
 
-      Auditorio::find($id)->update($dados);
+      Agendamento::find($id)->update($dados);
 
       return redirect()->route('site.home');
     }
 
+
+    public function confirmar($id){
+      $auditorio = Agendamento::find($id);
+      $auditorio['status'] = 'CONFIRMADO';
+      $auditorio->save();
+      return redirect()->back();
+    }
+
+    public function negar($id){
+      $auditorio = Agendamento::find($id);
+      $auditorio->status = 'NEGADO';
+      $auditorio->save();
+      return redirect()->back();
+    }
+
     public function deletar($id){
-      Auditorio::find($id)->delete();
+      Agendamento::find($id)->delete();
       return redirect()->route('site.home');
     }
 }

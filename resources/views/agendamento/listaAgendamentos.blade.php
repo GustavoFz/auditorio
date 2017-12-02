@@ -25,6 +25,8 @@
                         <th>E-mail</th>
                         <th>Data</th>
                         <th>Turno</th>
+                        <th>Status</th>
+                        <th>Ação</th>
                     </tr>
                     </thead>
 
@@ -40,6 +42,19 @@
                                 <a class="{{$agendamento->manha == 'sim' ? 'btn red' : 'btn green'}}">Manhã</a>
                                 <a class="{{$agendamento->tarde == 'sim' ? 'btn red' : 'btn green'}}">Tarde</a>
                                 <a class="{{$agendamento->noite == 'sim' ? 'btn red' : 'btn green'}}">Noite</a>
+                            </td>
+                            <td>{{$agendamento->status}}</td>
+                            <td>
+                              @can('edit', \App\Auditorio::class)
+                            <a style="color: #4CAF50;" href="{{route('agendamento.confirmar', $agendamento->id)}}">
+                                <i class="small material-icons">check</i>
+                            </a>
+                            @endcan
+                            @can('delete', \App\Auditorio::class)
+                            <a style="color: #F44336;" href="{{route('agendamento.negar', $agendamento->id)}}">
+                            <i class="small material-icons">clear</i>
+                            </a>
+                            @endcan
                             </td>
                         </tr>
                     @endforeach

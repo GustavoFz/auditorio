@@ -22,6 +22,8 @@ Route::get('/auditorio/deletar/{id}',['as'=>'admin.auditorio.deletar','uses'=>'A
 Route::get('/agendamentos/',['as'=>'agendamento.listar','uses'=>'AgendamentoController@agendamentos']);
 Route::get('/agendamento/agendar/{id}',['as'=>'agendamento.agendar','uses'=>'AgendamentoController@agendar']);
 Route::post('/agendamento/salvar/',['as'=>'agendamento.salvar','uses'=>'AgendamentoController@salvar']);
+Route::get('/agendamento/confirmar/{id}',['as'=>'agendamento.confirmar','uses'=>'AgendamentoController@confirmar']);
+Route::get('/agendamento/negar/{id}',['as'=>'agendamento.negar','uses'=>'AgendamentoController@negar']);
 
 
 // Autencicação
