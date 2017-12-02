@@ -32,6 +32,9 @@
                     @else
                         <li><a href="/auditorios">Auditórios</a></li>
                         <li><a href="/agendamentos">Agendamentos</a></li>
+                        @can('edit', \App\User::class)
+                            <li><a href="/usuarios">Usuarios</a></li>
+                        @endcan
                         <!-- Dropdown Trigger -->
                         <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='drop'>{{str_limit(Auth::user()->name, 16)}}</a>
 

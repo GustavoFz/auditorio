@@ -12,9 +12,14 @@ use App\Agendamento;
 class RoleController extends Controller
 {
     public function setup() {
+		Bouncer::allow('admin')->to('create', User::class);
+		Bouncer::allow('admin')->to('edit', User::class);
+		Bouncer::allow('admin')->to('delete', User::class);
+
 		Bouncer::allow('admin')->to('create', Auditorio::class);
 		Bouncer::allow('admin')->to('edit', Auditorio::class);
 		Bouncer::allow('admin')->to('delete', Auditorio::class);
+		
 		Bouncer::allow('admin')->to('create', Agendamento::class);
 		Bouncer::allow('admin')->to('edit', Agendamento::class);
 		Bouncer::allow('admin')->to('delete', Agendamento::class);
