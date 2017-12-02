@@ -68,6 +68,7 @@ class AgendamentoController extends Controller
 
 
     public function confirmar($id){
+      $this->authorize('confirmar', Agendamento::class);
       $auditorio = Agendamento::find($id);
       $auditorio['status'] = 'CONFIRMADO';
       $auditorio->save();
@@ -75,6 +76,7 @@ class AgendamentoController extends Controller
     }
 
     public function negar($id){
+      $this->authorize('negar', Agendamento::class);
       $auditorio = Agendamento::find($id);
       $auditorio->status = 'NEGADO';
       $auditorio->save();

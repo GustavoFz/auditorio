@@ -45,12 +45,13 @@
                             </td>
                             <td>{{$agendamento->status}}</td>
                             <td>
-                              @can('edit', \App\Auditorio::class)
+                            @can('confirmar', \App\Agendamento::class)
                             <a style="color: #4CAF50;" href="{{route('agendamento.confirmar', $agendamento->id)}}">
                                 <i class="small material-icons">check</i>
                             </a>
                             @endcan
-                            @can('delete', \App\Auditorio::class)
+                            
+                            @can('negar', \App\Agendamento::class)
                             <a style="color: #F44336;" href="{{route('agendamento.negar', $agendamento->id)}}">
                             <i class="small material-icons">clear</i>
                             </a>

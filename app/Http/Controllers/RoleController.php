@@ -15,16 +15,21 @@ class RoleController extends Controller
 		Bouncer::allow('admin')->to('create', Auditorio::class);
 		Bouncer::allow('admin')->to('edit', Auditorio::class);
 		Bouncer::allow('admin')->to('delete', Auditorio::class);
+		Bouncer::allow('admin')->to('create', Agendamento::class);
+		Bouncer::allow('admin')->to('edit', Agendamento::class);
+		Bouncer::allow('admin')->to('delete', Agendamento::class);
+		Bouncer::allow('admin')->to('confirmar', Agendamento::class);
+		Bouncer::allow('admin')->to('negar', Agendamento::class);
+
 
 		Bouncer::allow('secretaria')->to('edit', Auditorio::class);
-		Bouncer::allow('secretaria')->to('confirm', Auditorio::class);
+		Bouncer::allow('secretaria')->to('confirmar', Agendamento::class);
+		Bouncer::allow('secretaria')->to('negar', Agendamento::class);
 
 		Bouncer::allow('user')->to('create', Agendamento::class);
 
 		$user1 = User::find(1);
-		$user2 = User::find(2);
 		$user1->assign('admin');
-		$user2->assign('user');
 		return redirect()->back();
 	}
 }
