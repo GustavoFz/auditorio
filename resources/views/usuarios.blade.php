@@ -24,7 +24,11 @@
                  <td>{{$usuario->email}}</td>               
                  <td>
                     @foreach($usuario->roles as $role)
-                        {{$role->name}}
+                        @if ($loop->last)
+                          {{$role->name}}
+                        @else
+                          {{$role->name}},
+                        @endif
                     @endforeach
                  </td>
                  <td>
