@@ -38,4 +38,6 @@ class User extends Authenticatable
     public function agendamentos(){
       return $this->hasMany(Agendamento::class, 'user_id', 'id');
     }
+
+    
 }

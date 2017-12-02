@@ -8,6 +8,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ROLES
 Route::get('/roles/setup', 'RoleController@setup');
 
+// Usuarios
+Route::get('/usuarios', 'UserController@index');
+
 
 // AUDITORIOS
 Route::get('/auditorios',['as'=>'site.auditorios','uses'=>'AuditorioController@index']);
