@@ -20,6 +20,7 @@ class CreateAgendamentosTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('dataAgendamento')->nullable();
+            $table->string('status');
             $table->string('manha')->default('nao');
             $table->string('tarde')->default('nao');
             $table->string('noite')->default('nao');

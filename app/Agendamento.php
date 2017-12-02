@@ -8,7 +8,7 @@ use App\Auditorio;
 class Agendamento extends Model
 {
      protected $fillable = [
-    	'auditorio_id', 'user_id', 'email', 'dataAgendamento', 'manha', 'tarde', 'noite'
+    	'auditorio_id', 'user_id', 'email', 'dataAgendamento', 'manha', 'tarde', 'noite', 'status'
     ];
 
     protected $dates = ['dataAgendamento'];
