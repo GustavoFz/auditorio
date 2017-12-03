@@ -25,9 +25,13 @@
                  <td>
                     @foreach($usuario->roles as $role)
                         @if ($loop->last)
-                          {{$role->name}}
+                          {{$role->name}} <a style="color: #F44336;" class="modal-trigger" href="{{route('usuarios.deleteRole', ['user_id' => $usuario->id, 'role_id' => $role->id])}}">
+                                            <i class="tiny material-icons">clear</i>
+                                          </a>
                         @else
-                          {{$role->name}},
+                          {{$role->name}} <a style="color: #F44336;" class="modal-trigger" href="{{route('usuarios.deleteRole', ['user_id' => $usuario->id, 'role_id' => $role->id])}}">
+                                            <i class="tiny material-icons">clear</i>
+                                          </a>,
                         @endif
                     @endforeach
                  </td>

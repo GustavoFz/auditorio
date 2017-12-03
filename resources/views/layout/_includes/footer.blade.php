@@ -53,9 +53,7 @@
     $("#mudar-permissao").change(function () {
         var id = jQuery(this).val();
         alert(id);
-
         //adicionar metodos aqui!
-
         location.reload();
     })
 </script>
