@@ -11,12 +11,14 @@
             </div>
             <p class="center-align">Para efetuar um agendamento, faça login</p>
         @else
+            <!--
             <div class="container yellow z-depth-4" style="border-radius: 8px">
                 <h3 class="center-align">Bem-vindo, {{ Auth::user()->name }}!</h3>
             </div>
+            -->
 
             @if(Auth::user()->agendamentos()->count() != 0)
-                <h3 class="center-align">Esses são seus agendamentos</h3>
+                <h3 class="center-align">Meus Agendamentos</h3>
                 <table class="striped centered">
                     <thead>
                     <tr>
