@@ -20,7 +20,7 @@
       <table class="striped centered">
         <thead>
           <tr>
-            <th>ID</th>
+          <!--<th>ID</th>-->
             <th>E-mail</th>
             <th>Data</th>
             <th>Turno</th>
@@ -30,7 +30,7 @@
        @foreach($agendamentos as $agendamento)
         <tbody>
           <tr>
-          <td>{{$agendamento->id}}</td>
+          <!--<td>{{$agendamento->id}}</td>-->
           <td>{{$agendamento->user->email}}</td>
           <td>{{isset($agendamento->dataAgendamento) ? $agendamento->dataAgendamento->format('d/m/Y') : 'NULL'}}</td>
           <td width="50%">
@@ -53,7 +53,7 @@
 <table>
       <thead>
         <tr>
-          <th>ID</th>
+        <!--<th>ID</th>-->
           <th>Sala</th>
           <th>Prédio</th>
           <th>Descrição</th>
@@ -65,7 +65,7 @@
 
       <tbody>
           <tr>
-            <td>{{$registro->id}}</td>
+          <!--<td>{{$registro->id}}</td>-->
             <td>{{$registro->numero}}</td>
             <td>{{$registro->predio}}</td>
             <td>{{$registro->descricao}}</td>
