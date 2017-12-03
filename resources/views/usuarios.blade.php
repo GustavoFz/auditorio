@@ -33,7 +33,7 @@
                  </td>
                  <td>
                 <div class="input-field center-align col s10 offset-s1">
-                    <select>
+                    <select id="mudar-permissao">
                       <option value="" disabled selected>Escolha o acesso</option>
                       @foreach($roles as $role)
                       <option>{{$role->name}}</option>

@@ -49,6 +49,15 @@
         $('ul.tabs').tabs();
     });
 
+  // DISPARA METODO E ATUALIZA PAGINA AO SELECIONAR UM TIPO DE PERMISSÃO
+    $("#mudar-permissao").change(function () {
+        var id = jQuery(this).val();
+        alert(id);
+
+        //adicionar metodos aqui!
+
+        location.reload();
+    })
 </script>
 </body>
 </html>
