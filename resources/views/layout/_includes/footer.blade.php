@@ -50,7 +50,10 @@
     });
 
   // DISPARA METODO E ATUALIZA PAGINA AO SELECIONAR UM TIPO DE PERMISSÃO
-    $("#mudar-permissao").change(function () {
+    $('.mudar-permissao').change(function () {
+       // var id4 = $(this).attr("id");
+       // var id3 = document.getElementById('pega-id');
+      //  var id2 = $('.pega-email').text();
         var id = jQuery(this).val();
         alert(id);
         //adicionar metodos aqui!

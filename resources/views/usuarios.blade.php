@@ -19,9 +19,9 @@
             <tbody>
              @foreach($usuarios as $usuario)
              <tr>
-                 <td>{{$usuario->id}}</td>               
+                 <td>{{$usuario->id}}</td>
                  <td>{{$usuario->name}}</td>               
-                 <td>{{$usuario->email}}</td>               
+                 <td>{{$usuario->email}}</td>
                  <td>
                     @foreach($usuario->roles as $role)
                         @if ($loop->last)
@@ -37,7 +37,7 @@
                  </td>
                  <td>
                 <div class="input-field center-align col s10 offset-s1">
-                    <select id="mudar-permissao">
+                    <select class="mudar-permissao">
                       <option value="" disabled selected>Escolha o acesso</option>
                       @foreach($roles as $role)
                       <option>{{$role->name}}</option>
