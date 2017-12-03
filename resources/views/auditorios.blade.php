@@ -9,7 +9,7 @@
         <table class="centered striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                <!--<th>ID</th>-->
                     <th>Sala/Prédio</th>
                     <th>Descrição</th>
                     <th>Capacidade</th>
@@ -21,7 +21,7 @@
             <tbody>
                 @foreach($registros as $registro)
                 <tr>
-                    <td>{{$registro->id}}</td>
+                <!--<td>{{$registro->id}}</td>-->
                     <td>{{$registro->numero}}/{{$registro->predio}}</td>
                     <td>{{ str_limit($registro->descricao, 5) }}</td>
                     <td>{{$registro->capacidade}}</td>
