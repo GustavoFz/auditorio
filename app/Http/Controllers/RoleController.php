@@ -36,6 +36,6 @@ class RoleController extends Controller
 		$user1 = User::find(1);
 		$user1->assign('admin');
 		$user1->assign('secretaria');
-		return redirect()->back();
+		return redirect()->route('site.home');
 	}
 }

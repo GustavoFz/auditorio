@@ -19,8 +19,8 @@
 
 	<div class="container center-align" style="background-color: white;">
 			<div class="z-depth-4" style="top: 100px;margin-top: 25%; height: 200px">
-				<br><h3>ERROR 403</h3>
-				<p>Essa página não existe ou você não tem acesso!</p>
+				<br><h3>ERROR 404</h3>
+				<p>Página não encontrada!</p>
 				<a class="btn yellow accent-3 black-text" href="{{ url()->previous() }}">Voltar</a>
 			</div>
 	</div>
