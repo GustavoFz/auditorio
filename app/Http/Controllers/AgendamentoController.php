@@ -39,8 +39,22 @@ class AgendamentoController extends Controller
         return redirect()->back()->withErrors(['dataAgendamento' => 'A data do agendamento não pode ser no passado!']);
       }
 
+      //SE NAO DER CERTO RANCA ISSO FORA
       if( (Agendamento::where('auditorio_id', $req->auditorio_id)->where('dataAgendamento', $data)->count() > 0) ){
-        return redirect()->back()->withErrors(['dataAgendamento' => 'Já existe um agendamento com essa data e turno']);
+        $agendamentos = Agendamento::where('auditorio_id', $req->auditorio_id)->where('dataAgendamento', $data)->get();
+        foreach($agendamentos as $agendamento){
+            foreach($agendamento->turnos as $turno){
+            if($turno->turno == 'manha' && isset($dados['manha']) && $dados['manha'] == "sim"){
+            return redirect()->back()->withErrors(['dataAgendamento' => 'Já existe um agendamento com essa data e turno']);
+            }
+            if($turno->turno == 'tarde' && isset($dados['tarde']) && $dados['tarde'] == "sim"){
+            return redirect()->back()->withErrors(['dataAgendamento' => 'Já existe um agendamento com essa data e turno']);
+            }
+            if($turno->turno == 'noite' && isset($dados['noite']) && $dados['noite'] == "sim"){
+            return redirect()->back()->withErrors(['dataAgendamento' => 'Já existe um agendamento com essa data e turno']);
+            }
+          }
+        }
       }
 
 
