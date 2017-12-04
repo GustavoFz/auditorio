@@ -37,12 +37,9 @@
                  </td>
                  <td>
                 <div class="input-field center-align col s10 offset-s1">
-                    <select class="mudar-permissao">
-                      <option value="" disabled selected>Escolha o acesso</option>
-                      @foreach($roles as $role)
-                      <option>{{$role->name}}</option>
-                      @endforeach
-                    </select>
+                    @foreach($roles as $role)
+                      <a class="btn btn-small" href="{{route('usuarios.assignRole', ['user_id' => $usuario->id, 'role_id' => $role->id])}}">{{$role->name}}</a>
+                    @endforeach
                 </div>
                  </td>               
              </tr>

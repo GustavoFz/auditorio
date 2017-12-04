@@ -77,6 +77,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        if($teste['id'] == 1){
+             $user1 = User::find($teste->id);
+             $user1->assign('admin');
+        }
         $user1 = User::find($teste->id);
         $user1->assign('user');
         return $teste;

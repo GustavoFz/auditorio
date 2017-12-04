@@ -10,7 +10,8 @@ Route::get('/roles/setup', 'RoleController@setup');
 
 // Usuarios
 Route::get('/usuarios', 'UserController@index');
-Route::get('/usuarios/{user_id}/{role_id}', ['as'=>'usuarios.deleteRole', 'uses' => 'UserController@deleteRole']);
+Route::get('/usuarios/delete/{user_id}/{role_id}', ['as'=>'usuarios.deleteRole', 'uses' => 'UserController@deleteRole']);
+Route::get('/usuarios/assign/{user_id}/{role_id}', ['as'=>'usuarios.assignRole', 'uses' => 'UserController@assignRole']);
 
 
 // AUDITORIOS

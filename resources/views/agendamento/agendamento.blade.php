@@ -7,6 +7,15 @@
   <div class="row">
     <h4 class="center">Agendamentos do auditório {{$registro->numero.$registro->predio}}</h4>
     @if($agendamentos->isEmpty() == false)
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li><h5 style="color: red;">{{ $error }}</h5></li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <div class="row" align="center">
       <div  class="col m6">
@@ -72,7 +81,7 @@
             <td width="150px">{{$registro->capacidade}}</td>
             <td width="200px">
             	<form class="" action="{{route('agendamento.salvar')}}" method="post">
-                <input type="text" name="dataAgendamento" placeholder="Selecione uma data" required="true" class="datepicker">
+                <input type="date" name="dataAgendamento" placeholder="Selecione uma data" required="required" class="datepicker">
             </td>
             <td>
             	

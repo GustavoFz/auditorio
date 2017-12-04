@@ -24,12 +24,21 @@ class AgendamentoController extends Controller
     }
 
     public function salvar(Request $req){
+
+      $validatedData = $req->validate([
+        'dataAgendamento' => 'required',
+       ], [
+          'dataAgendamento.required' => 'Selecione uma data!'
+       ]);
+
    	  $dados = $req->all();
       $dados['status'] = 'PENDENTE';
       if(isset($dados['manha']) == false && isset($dados['tarde']) == false && isset($dados['noite']) == false){
         
         $validatedData = $req->validate([
         'manha' => 'required',
+       ], [
+          'manha.required' => 'Selecione pelo menos um turno!'
        ]);
         return redirect()->back();
       }
