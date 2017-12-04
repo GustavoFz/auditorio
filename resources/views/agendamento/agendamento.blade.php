@@ -6,8 +6,7 @@
 <div class="container">
   <div class="row">
     <h4 class="center">Agendamentos do auditório {{$registro->numero.$registro->predio}}</h4>
-    @if($agendamentos->isEmpty() == false)
-@if ($errors->any())
+    @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -16,6 +15,7 @@
         </ul>
     </div>
 @endif
+    @if($agendamentos->isEmpty() == false)
 
     <div class="row" align="center">
       <div  class="col m6">

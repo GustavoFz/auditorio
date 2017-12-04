@@ -28,7 +28,7 @@ class AgendamentoController extends Controller
       $validatedData = $req->validate([
         'dataAgendamento' => 'required',
        ], [
-          'dataAgendamento.required' => 'Selecione uma data!'
+          'dataAgendamento.required' => 'Selecione uma data!',
        ]);
 
    	  $dados = $req->all();
