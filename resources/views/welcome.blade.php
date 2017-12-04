@@ -3,23 +3,23 @@
 @section('titulo', 'Página Inicial')
 
 @section('conteudo')
-    <div class="container">
-          @if ($errors->any())
-          <div class="alert alert-danger">
-            <ul>
-              @foreach ($errors->all() as $error)
-              <li><h5 style="color: red;">{{ $error }}</h5></li>
-              @endforeach
-            </ul>
-          </div>
-          @endif
+    <div class="container center">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li><h5 style="color: red;">{{ $error }}</h5></li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @if(Auth::guest())
             <div class="container yellow z-depth-4" style="border-radius: 8px">
                 <h3 class="center-align">Bem-vindo!</h3>
             </div>
             <p class="center-align">Para efetuar um agendamento, faça login</p>
         @else
-            <!--
+        <!--
             <div class="container yellow z-depth-4" style="border-radius: 8px">
                 <h3 class="center-align">Bem-vindo, {{ Auth::user()->name }}!</h3>
             </div>
