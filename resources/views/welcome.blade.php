@@ -4,7 +4,15 @@
 
 @section('conteudo')
     <div class="container">
-
+          @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li><h5 style="color: red;">{{ $error }}</h5></li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
         @if(Auth::guest())
             <div class="container yellow z-depth-4" style="border-radius: 8px">
                 <h3 class="center-align">Bem-vindo!</h3>
