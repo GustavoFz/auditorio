@@ -13,7 +13,5 @@ class AgendamentoTurno extends Model
 
     public function agendamento(){
       return $this->belongsTo(Agendamento::class, 'agendamento_id', 'id');
-      //Caso o nome da coluna seja diferente, passa ela por parametro
-    // return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 }
