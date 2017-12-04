@@ -7,6 +7,19 @@ use App\Auditorio;
 class AuditorioController extends Controller
 {
   public function salvar(Request $req){
+
+      $validatedData = $req->validate([
+        'numero' => 'required',
+        'predio' => 'required',
+        'capacidade' => 'required',
+        'descricao' => 'required',
+       ], [
+          'numero.required' => 'Informe o numero da sala!',
+          'predio.required' => 'Informe o predio da sala!',
+          'capacidade.required' => 'Informe a capacidade da sala!',
+          'descricao.required' => 'Informe a descricao da sala!'
+       ]);
+
     $dados = $req->all();
 
     if(isset($dados['acessibilidade']) == "on"){
@@ -31,6 +44,7 @@ class AuditorioController extends Controller
   }
 
   public function editar($id){
+
     $this->authorize('edit', Auditorio::class);
     $registro = Auditorio::find($id);
 
@@ -38,7 +52,17 @@ class AuditorioController extends Controller
   }
 
   public function atualizar(Request $req, $id){
+    //dd($req);
     $this->authorize('edit', Auditorio::class);
+              $validatedData = $req->validate([
+        'numero' => 'required',
+        'capacidade' => 'required',
+        'descricao' => 'required',
+       ], [
+          'numero.required' => 'Informe o numero da sala!',
+          'capacidade.required' => 'Informe a capacidade da sala!',
+          'descricao.required' => 'Informe a descricao da sala!'
+       ]);
     $dados = $req->all();
 
     if(isset($dados['acessibilidade']) == "on"){
