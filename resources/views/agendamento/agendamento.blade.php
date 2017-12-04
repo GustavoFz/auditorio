@@ -55,9 +55,8 @@
       <p>Não há agendamentos</p>
     @endif
   </div>
-
+<br>
   <h3 class="center">Agendar auditório</h3>
-
 
 <table>
       <thead>
@@ -113,14 +112,12 @@
           </tr>
       </tbody>
     </table>
-
-    	<button class="btn deep-orange">Agendar</button>
-        
+    	<button class="btn deep-orange">Agendar</button>    
 	</form>
+  <br>
+  <br>
+  <br>
 
-  @if ($errors->any())
-
-  @endif
 
 </div>
 
