@@ -25,8 +25,9 @@ class AgendamentoController extends Controller
     }
 
     public function salvar(Request $req){
-
+      //dd($req->all());
       $data = Carbon::parse($req->dataAgendamento);
+      $dados = $req->all();
 
       $validatedData = $req->validate([
         'dataAgendamento' => 'required',
@@ -38,17 +39,19 @@ class AgendamentoController extends Controller
         return redirect()->back()->withErrors(['dataAgendamento' => 'A data do agendamento não pode ser no passado!']);
       }
 
-   	  $dados = $req->all();
+      if( (Agendamento::where('auditorio_id', $req->auditorio_id)->where('dataAgendamento', $data)->count() > 0) ){
+        return redirect()->back()->withErrors(['dataAgendamento' => 'Já existe um agendamento com essa data e turno']);
+      }
+
+
       $dados['status'] = 'PENDENTE';
       if(isset($dados['manha']) == false && isset($dados['tarde']) == false && isset($dados['noite']) == false){
-        
-        $validatedData = $req->validate([
-        'manha' => 'required',
-       ], [
-          'manha.required' => 'Selecione pelo menos um turno!'
-       ]);
+        $validatedData = $req->validate(
+          ['manha' => 'required'], ['manha.required' => 'Selecione pelo menos um turno!']
+          );
         return redirect()->back();
       }
+
       $id = Agendamento::create($dados);
       if (isset($dados['manha']) && $dados['manha'] == "sim"){
         $turno = ['turno'=>'manha', 'status'=>'PENDENTE', 'agendamento_id'=>$id->id];
