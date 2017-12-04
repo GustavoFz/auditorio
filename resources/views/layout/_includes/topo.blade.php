@@ -61,18 +61,18 @@
                     @endif
 
                 </ul>
-                <ul class="side-nav" id="mobile">
+                <ul class="side-nav grey darken-4" id="mobile">
 
-                    <li><a href="/">Home</a></li>
+                    <li><a class="white-text" href="/">Home</a></li>
 
                     @if(Auth::guest())
                         <li><a class="btn modal-trigger yellow accent-3 black-text"
                                href="#modal-login">Login</a></li>
                     @else
-                        <li><a href="/auditorios">Auditórios</a></li>
-                        <li><a href="/agendamentos">Agendamentos</a></li>
+                        <li><a class="white-text" href="/auditorios">Auditórios</a></li>
+                        <li><a class="white-text" href="/agendamentos">Agendamentos</a></li>
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-button btn yellow accent-3 black-text' href='#' data-activates='dropdown1'>{{str_limit(Auth::user()->name, 16)}}</a>
+                        <a class="dropdown-button btn yellow accent-3 black-text" style="width: 90%" href='#' data-activates='dropdown1'>{{str_limit(Auth::user()->name, 16)}}</a>
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>
