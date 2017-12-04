@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Auditorio;
 use App\Agendamento;
 use App\AgendamentoTurno;
+use Carbon\Carbon;
 
 class AgendamentoController extends Controller
 {
@@ -25,11 +26,17 @@ class AgendamentoController extends Controller
 
     public function salvar(Request $req){
 
+      $data = Carbon::parse($req->dataAgendamento);
+
       $validatedData = $req->validate([
         'dataAgendamento' => 'required',
        ], [
           'dataAgendamento.required' => 'Selecione uma data!',
        ]);
+
+      if($data->lt(Carbon::today())){
+        return redirect()->back()->withErrors(['dataAgendamento' => 'A data do agendamento não pode ser no passado!']);
+      }
 
    	  $dados = $req->all();
       $dados['status'] = 'PENDENTE';
